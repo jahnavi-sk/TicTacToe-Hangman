@@ -6,9 +6,7 @@ from tkinter import messagebox
 from PIL import ImageTk
 from tkinter import font 
 root= Tk()
-root['bg']= '#2C5755'
-
-
+root['bg']= '#490206'
 
 root.geometry("1550x900")
 score=0
@@ -24,7 +22,6 @@ def startb():
 def delete_text():
     name_entry.delete("1.0", "end")
 
-
 def game_over(): 
     scorestr= str(score)
     scorestr = username + ":" + str(score)
@@ -38,12 +35,10 @@ def game_over():
                 myfile.write(ret+'\n')
     root.destroy()
     
-
 def on_click():
     l1.grid_forget()
     e1.grid_forget()
     e2.grid_forget()
-
 
 def button_click_hard():
     global photo
@@ -265,7 +260,6 @@ def button_click_hard():
     submit['font'] = myFont10
     submit.grid(row=4,column=1)
 
-
 def button_click_easy():
     global photo
     f = open("easy.txt","r")
@@ -441,7 +435,6 @@ def button_click_easy():
     submit['font'] = myFont10
     submit.grid(row=4,column=1)
 
-
 def start():
     
     global l1
@@ -465,7 +458,6 @@ def start():
     e1['font']= myFont15
     e1.grid(column=1)
 
-
 def submit():
     global username
     username = name_entry.get(1.0,"end-1c")
@@ -483,12 +475,10 @@ def submit():
         next2['font']= myFont20
         next2.grid(column=1)
 
-
 def game_start():
     b1 = Button(root,  text = "START",bg="#FB5A55",height =10,width=20,command =lambda:[startb(),start()])
     b1['font'] =  myFont20 
     b1.grid(row = 2, column = 1, padx = 600, pady = 250)
-
 
 def login():
     global name_entry
@@ -501,11 +491,13 @@ def login():
     sub_btn['font']= myFont20
     sub_btn.grid(column=1)
     
-
+root.grid_columnconfigure(0, weight=1)
+root.grid_rowconfigure(0, weight=1)
 
 login_name = Button(root, text='Login', bg="#FB5A55", command = lambda: [startb(), login()])
 login_name['font']= myFont30
-login_name.grid(column =1, padx= 700, pady = 350 )
+# login_name.grid(column =2, padx= 700, pady = 350 )
+login_name.grid(column=0, row=0, padx=10, pady=10, sticky="nsew")
 
 
 root.mainloop()
